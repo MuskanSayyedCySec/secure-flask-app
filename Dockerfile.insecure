@@ -1,0 +1,11 @@
+# INTENTIONALLY INSECURE. For before and after comparison only. Do not use.
+# The SECRET_KEY below is a fake placeholder, not a real secret.
+
+FROM python:3.13
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+ENV SECRET_KEY=do_not_do_this_fake_secret_key
+ENV HOST=0.0.0.0
+EXPOSE 8080
+CMD ["python", "app.py"]
