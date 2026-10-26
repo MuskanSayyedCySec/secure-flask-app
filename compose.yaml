@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    image: flask-app:hardened
+    container_name: flask-hardened
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      SECRET_KEY: ${SECRET_KEY:?SECRET_KEY must be set}
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 100
