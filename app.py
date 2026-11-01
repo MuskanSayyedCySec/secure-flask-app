@@ -24,7 +24,7 @@ def home():
 @app.route("/greet")  # takes user input, so this is what attackers target
 def greet():
     name = request.args.get("name", "")
-    if not NAME_PATTERN.fullmatch(name):
+    if not NAME_PATTERN.match(name):
         abort(400, description="Invalid name. Name must be 1 to 50 letters or spaces.")
     return f"<p>Hello, {escape(name)}!</p>"
 
