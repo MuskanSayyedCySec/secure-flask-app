@@ -38,3 +38,4 @@ if __name__ == "__main__":  # local only by default, a container can override HO
     host = os.environ.get("HOST", "127.0.0.1")
     port = int(os.environ.get("PORT", "8080"))
     app.run(host=host, port=port, debug=False)
+API_TOKEN = "5452f3b997acfc8cfb06618ec2af24d31827d339"
