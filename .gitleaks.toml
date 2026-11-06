@@ -1,0 +1,8 @@
+title = "secure-flask-app gitleaks configuration"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public GPG key fingerprint of the Python release signing key. Set by the official python Docker image and copied into the Trivy evidence files. Public by design, not a secret."
+regexes = ['''7169605F62C751356D054A26A821E680E5FA6305''']

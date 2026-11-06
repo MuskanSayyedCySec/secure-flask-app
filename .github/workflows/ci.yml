@@ -31,6 +31,12 @@ jobs:
       - name: Run tests
         run: pytest -v
 
+      - name: Scan code with Bandit
+        run: bandit -r . -x ./.venv,./tests
+
+      - name: Check packages with pip-audit
+        run: pip-audit -r requirements.txt
+
   build:
     name: Build and check image
     needs: test
