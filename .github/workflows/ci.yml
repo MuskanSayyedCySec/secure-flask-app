@@ -64,6 +64,14 @@ jobs:
             exit 1
           fi
           echo "pip is not in the image"
+
+      - name: Check test tools are not in the image
+        run: |
+          if docker run --rm flask-app:ci python -c "import pytest"; then
+            echo "pytest was found in the image"
+            exit 1
+          fi
+          echo "pytest is not in the image"
           
       - name: Install Trivy and verify its hash
         env:
